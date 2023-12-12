@@ -31,6 +31,8 @@ def parse_command_args():
     return parser.parse_args()
 
 def percent_to_graph(percent, total_chars):
+
+ # Convert a percentage value
     if not 0 <= percent <= 100:
         raise ValueError("Percent must be between 0 and 100")
     filled_chars = int(round(percent / 100 * total_chars))
@@ -39,6 +41,7 @@ def percent_to_graph(percent, total_chars):
 
 def call_du_sub(location):
     try:
+     #call the 'du' command
         result = subprocess.check_output(["du", "-d", "1", location], text=True)
         # Split the result 
         return result.strip().split('\n')
