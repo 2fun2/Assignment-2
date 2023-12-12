@@ -7,18 +7,18 @@ import argparse
 '''
 OPS445 Assignment 2 - Winter 2022
 Program: duim.py 
-Author: "Student Name"
+Author: "Soheil Jafari"
 The python code in this file (duim.py) is original work written by
-"Student Name". No code in this file is copied from any other source 
+"Soheil Jafari. No code in this file is copied from any other source 
 except those provided by the course instructor, including any person, 
 textbook, or on-line resource. I have not shared this python script 
 with anyone or anything except for submission for grading.  
 I understand that the Academic Honesty Policy will be enforced and 
 violators will be reported and appropriate action will be taken.
 
-Description: <Enter your documentation here>
+Description: Improved du
 
-Date: 
+Date: 12/11/2023
 '''
 
 
@@ -39,12 +39,15 @@ def percent_to_graph(percent, total_chars):
 def call_du_sub(location):
     try:
         result = subprocess.check_output(["du", "-d", "1", location], text=True)
+        # Split the result 
         return result.strip().split('\n')
     except subprocess.CalledProcessError as e:
+        # Handle any errors  and stop
         print(f"An error occurred: {e}")
         return []
 
 
+# Create a dictionary for du commad
 def create_dir_dict(du_list):
     dir_dict = {}
     for line in du_list:
