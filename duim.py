@@ -19,16 +19,17 @@ violators will be reported and appropriate action will be taken.
 Description: Improved du
 
 Date: 12/11/2023
-'''
+''' 
+
 
  # Create an ArgumentParser
-def parse_command_args():
-    parser = argparse.ArgumentParser(description="DU Improved -- See Disk Usage Report with bar charts")
-    parser.add_argument("-l", "--length", type=int, default=20, help="Specify the length of the graph. Default is 20.")
-    parser.add_argument("-H", "--human-readable", action="store_true", help="Display sizes in a human-readable format")
-    parser.add_argument("target", nargs=1, help="Target directory for disk usage analysis")
-    #command line arguments and return the parsed arguments
-    return parser.parse_args()
+def setup_parser():#defining a function
+    #adding argument for directory and then return parser
+    parser = argparse.ArgumentParser(description="File search and report script.")#creating the parser option
+    parser.add_argument('--directory', type=str, required=True, help='Target directory for searching files.')#specifying the directory
+    parser.add_argument('--criteria', nargs='+', required=True, help='Criteria for file search.')
+  return parse
+
 
 def percent_to_graph(percent, total_chars):
 
